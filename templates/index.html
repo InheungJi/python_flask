@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Market News!!</h1>
+<form id="search_form" action="/" method="POST">
+    {{ template_form.category.label }}
+    <div class="category">
+        {{ template_form.category }}
+    </div>
+    {{ template_form.submit }}
+</form>
+<div class="container">
+
+    <div class="posts">
+        {% for data in template_data %}
+        <div class="post">
+            <div class="news_image" style="background-image: url({{ data['image'] }});"></div>
+            <div class="post__content">
+                <div class="post__inside">
+                    <h3 class="post__title">{{ data['headline']}}</h3>
+                    <p>Source : {{ data['source'] }}</p>
+                    <p class="post__excerpt">
+                       {{ data['summary'] }}
+                    </p>
+                    <button class="btn--accent post__button">
+                        <a href="{{ data['url'] }}">
+                            Read more
+                        <i class="fa fa-chevron-right"></i>
+                        </a>
+                    </button>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock%}
