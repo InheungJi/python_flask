@@ -12,7 +12,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'mysecret'
 
 #finnhub library - stock information
-my_api_key = "c1lqu4q37fkqle0e7290"
+my_api_key = ********** # use your api key
 
 
 
